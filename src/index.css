@@ -1,13 +1,130 @@
-body {
+@import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+*{
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins",sans-serif;
+}
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  background: #2681dc;
+
+}
+.title{
+  font-size:1.5rem;
+  text-transform: capitalize;  
+  text-align: center;
+  color:#2681dc;
+}
+.title::first-letter{
+  text-shadow: 1px 1px 2px pink;
+  font-weight: bolder;
+  font-size: 2rem;
+
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.container{
+  background:white;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+  padding:2rem;
+  box-shadow:5px 5px #388ee4;
+  outline:2px solid rgba(118, 105, 255, 0.084);
+  outline-offset: -5px;
+
+}
+.container form {
+  margin-top:1.5rem;
+}
+.container form .row{
+  display: flex;
+  flex-direction: column;
+}
+.container form .row .voices-icons{
+  background: #fff;
+  margin-top: -15px;
+  border: 1px solid #bbb;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-top:none;
+  margin-bottom: 10px;
+  text-align: right;
+  padding-right: 10px;
+  display: flex;
+  align-items: center;
+
+}
+.container form .row .voices-icons .select-voices{
+  flex:1;
+}
+.container form .row .voices-icons i{
+  cursor: pointer;
+  opacity: 0.5;
+  margin-left:10px;
+
+
+}
+.container form textarea,
+.container form select{
+  width: 100%;
+  outline:none;
+  border:none;
+  border-radius:5px;
+}
+.container form textarea{
+  border:1px solid #bbb;
+  padding:3px 5px;
+  margin-bottom:12px;
+  resize: none; 
+}
+.container form select{
+height: 30px;
+display: flex;
+align-items: center;
+
+}
+.container ul{
+list-style: none;
+margin-top: 5px;
+font-size: 13px;
+max-height: 250px;
+overflow:scroll;
+}
+.container ul .word h2{
+ font-size: 1.5rem;
+ text-transform: capitalize;
+  }
+.container ul .word span{
+    font-size: 0.8rem;
+}
+.container ul .contain{
+margin-top: 7px;
+}
+.container ul .contain .details{
+  border-top:1px solid #eee;
+  border-bottom: 1px solid #eee;
+  margin-top: 10px;
+  padding: 5px 0;
+  padding-left: 10px;
+  border-radius: 5px;
+  border-left: 3px solid #2681dc;
+}
+.container ul .contain .details p{
+  opacity: 0.6;
+}
+.container ul .contain .synonyms span{
+  opacity: 0.6;
+  border-bottom: 1px dotted #2681dc;
+  cursor:pointer;
+}
+.container ul .contain .synonyms span:hover{
+  color:#2681dc;
+}
+::-webkit-scrollbar{
+  display:none;
 }

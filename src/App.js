@@ -1,23 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import Result  from "./Result"
+import React ,{useState, useMemo, useEffect} from 'react'
 
+
+
+const voice=window.speechSynthesis;
 function App() {
+  // console.log(voice.getVoices())
+const voices=useMemo(()=>voice.getVoices(),[])
+const [voiceSelected,setVoiceSelected]=useState("Google US English")
+
+console.log(voiceSelected);
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+<div className="container">
+  <h1 className="title">English Dictionary</h1>
+  <form action="">
+  <div className="row">
+  <textarea name="" id="" cols="30" rows="4"  placeholder="Enter the text..."></textarea>
+ <div className="voices-icons">
+<div className="select-voices">
+  <select name="" id="" value={voiceSelected} onChange={(e)=>setVoiceSelected(e.target.value)}>
+  {voices.map((vow,index)=>
+    <option key={vow.name} value={vow.name}>{vow.name}</option>)}
+  </select>
+</div>
+<i class="fa-solid fa-volume-high" ></i>
+ </div>
+ </div>
+  </form>
+<Result />
+</div>
     </div>
   );
 }
