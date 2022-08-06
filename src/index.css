@@ -67,6 +67,10 @@ body{
   opacity: 0.5;
   margin-left:10px;
 
+}
+.container form .row .voices-icons i.speak{
+color:#2681dc;
+
 
 }
 .container form textarea,
@@ -127,4 +131,8 @@ margin-top: 7px;
 }
 ::-webkit-scrollbar{
   display:none;
+}
+ul.meaning{
+  list-style-type: disc;
+  list-style: block;
 }
