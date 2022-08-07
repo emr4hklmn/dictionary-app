@@ -24,9 +24,16 @@ const dictionaryApi=(text)=>{
   })
   .catch(err=>setError(err));
 }
+const reset =()=>{
+  setIsSpeaking("")
+  setError("")
+  setMeaning([])
+  setPhonetics([])
+  setWord("")
+}
 
 useEffect(()=>{
-  if(!text.trim()) return;
+  if(!text.trim()) return reset();
   const debounce=setTimeout(()=>{
     dictionaryApi(text)
   },1000)
@@ -80,13 +87,19 @@ onClick={handleSpeech}
  </div>
  </div>
   </form>
-<Result 
+  {
+    (text.trim()!=="" && !error) && 
+    <Result 
 word={word} 
 phonetics={phonetics} 
 meaning={meaning}
-setText={text}
+setText={setText}
 synonyms={synonyms}
  />
+
+  }
+  
+
 </div>
     </div>
   );

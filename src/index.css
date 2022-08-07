@@ -11,7 +11,7 @@ body{
   align-items: center;
   width: 100%;
   min-height: 100vh;
-  background: crimson;
+  background: #1681dc;
 
 
 }
@@ -19,18 +19,21 @@ body{
   font-size:1.5rem;
   text-transform: capitalize;  
   text-align: center;
-  color:crimson;
+  color:#1681dc;
 }
 .container{
+  top:50%;
+  left:50;
   background:white;
   width: 100%;
-  max-width: 400px;
+  max-width: 300px;
   border-radius: 10px;
   padding:2rem;
-  box-shadow:5px 5px rgb(244, 6, 54);
-  outline:2px solid rgb(228, 79, 109);
+  box-shadow:5px 5px #0259a4;
+  outline:2px solid rgb(3, 35, 84);
   outline-offset: -5px;
-  height:100vh;
+ 
+
 
 }
 .container form {
@@ -64,7 +67,7 @@ body{
 
 }
 .container form .row .voices-icons i.speak{
-color:crimson;
+color:#1681dc;
 
 
 }
@@ -91,7 +94,7 @@ align-items: center;
 list-style: none;
 margin-top: 5px;
 font-size: 13px;
-max-height: 300px;
+max-height: 200px;
 overflow:scroll;
 }
 .container ul .word h2{
@@ -111,18 +114,18 @@ margin-top: 7px;
   padding: 5px 0;
   padding-left: 10px;
   border-radius: 5px;
-  border-left: 3px solid crimson;
+  border-left: 3px solid #1681dc;
 }
 .container ul .contain .details p{
   opacity: 0.6;
 }
 .container ul .contain .synonyms span{
   opacity: 0.6;
-  border-bottom: 1px dotted crimson;
+  border-bottom: 1px dotted #1681dc;
   cursor:pointer;
 }
 .container ul .contain .synonyms span:hover{
-  color:crimson;
+  color:#1681dc;
 }
 ::-webkit-scrollbar{
   display:none;
