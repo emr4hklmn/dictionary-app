@@ -1,8 +1,5 @@
 import Result  from "./Result"
 import React ,{useState, useMemo, useEffect} from 'react'
-
-
-
 const voice=window.speechSynthesis;
 function App() {
   // console.log(voice.getVoices())
@@ -14,14 +11,14 @@ const [meaning ,setMeaning]=useState([]);
 const [phonetics ,setPhonetics]=useState([]);
 const [word ,setWord]=useState("");
 const [error , setError]=useState("");
-
-
+const[synonyms , setSynonyms]=useState([]);
 const dictionaryApi=(text)=>{
   let url=`https://api.dictionaryapi.dev/api/v2/entries/en/${text}`;
   fetch(url).then(res=>res.json()).then(result=>{
     console.log(result);
     setMeaning(result[0].meanings[0].definitions);
-    setPhonetics(result[0].phonetics[1].text);
+    setSynonyms(result[0].meanings[0].synonyms)
+    setPhonetics(result[0].phonetics);
     setWord(result[0].word);
     setError("");
   })
@@ -30,7 +27,11 @@ const dictionaryApi=(text)=>{
 
 useEffect(()=>{
   if(!text.trim()) return;
-  dictionaryApi(text)
+  const debounce=setTimeout(()=>{
+    dictionaryApi(text)
+  },1000)
+  return ()=> clearTimeout(debounce)
+ 
 },[text])
 
 const startSpeech=(text)=>{
@@ -57,10 +58,6 @@ const handleSpeech=()=>{
   },100)
   
 }
-
-console.log(voiceSelected);
-
-
   return (
     <div className="App">
 <div className="container">
@@ -83,7 +80,13 @@ onClick={handleSpeech}
  </div>
  </div>
   </form>
-<Result word={word} phonetics={phonetics} meaning={meaning} />
+<Result 
+word={word} 
+phonetics={phonetics} 
+meaning={meaning}
+setText={text}
+synonyms={synonyms}
+ />
 </div>
     </div>
   );
